@@ -1,0 +1,22 @@
+# Virtual Environment
+/venv/
+.venv/
+env/
+.env
+
+# Byte-code
+__pycache__/
+*.pyc
+
+# Instance Folder
+/instance/
+*.db
+*.sqlite3
+
+# Secrets
+.flaskenv
+config.py
+
+# IDE settings
+.vscode/
+.idea/
