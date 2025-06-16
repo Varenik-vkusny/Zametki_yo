@@ -13,7 +13,7 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_mapping(
-        SECRET_KEY = ""
+        SECRET_KEY = "43ebd1ab942c9baf976fa92eb4750d8d",
         SQLALCHEMY_DATABASE_URI = "sqlite:///data.db"
     )
 
@@ -26,4 +26,4 @@ def create_app():
     csrf.init_app(app)
     migrate.init_app(app, db)
 
-    from .main
+    return app
