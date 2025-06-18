@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% from '_formhelpers.html' import render_field %}
+
+{% block content %}
+    <h1>Добавить заметку</h1>
+
+    <form method="POST" action="{{ url_for('addition_bp.add_zametka') }}">
+        {{ form.hidden_tag() }}
+
+        <dl>
+            {{ render_field(form.title) }}
+            {{ render_field(form.content) }}
+        </dl>
+
+        <p>
+            <input type="submit" value="Добавить заметку">
+        </p>
+    </form>
+{% endblock %}

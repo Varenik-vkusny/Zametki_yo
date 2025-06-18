@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Мой проект</title>
+</head>
+<body>
+    <header>
+        <h1>Проект с заметками</h1>
+
+        <ul>
+            <li><a href="{{ url_for('main_bp.index') }}">Главная</a></li>
+            <li><a href="{{ url_for('addition_bp.add_zametka') }}">Добавить заметку</a></li>
+            <li><a href="{{ url_for('zametki_bp.all_zametki') }}">Заметки</a></li>
+        </ul>
+    </header>
+    
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Мой проект</p>
+    </footer>
+</body>
+</html>

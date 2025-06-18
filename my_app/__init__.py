@@ -26,4 +26,12 @@ def create_app():
     csrf.init_app(app)
     migrate.init_app(app, db)
 
+    from .main_bp import main_bp
+    from .addition_bp import addition_bp
+    from .zametki_bp import zametki_bp
+
+    app.register_blueprint(main_bp)
+    app.register_blueprint(addition_bp)
+    app.register_blueprint(zametki_bp)
+
     return app
