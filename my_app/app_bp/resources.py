@@ -39,3 +39,31 @@ class ZametkaResource(Resource):
         db.session.commit()
 
         return '', 204
+    
+
+class ZametkaListResource(Resource):
+    def get(self):
+        zametki = Zametka.query.all()
+
+        return [{
+            'id': z.id,
+            'title': z.title,
+            'content': z.content
+        }for z in zametki], 200
+    
+    def post(self):
+        args = parser.parse_args()
+
+        if Zametka.query.filter_by(title=args['title']).first() and Zametka.query.filter_by(content=args['content']).first():
+            return {'message': 'A zametka with that content already exists'}, 400
+        
+        new_zametka= Zametka(
+            title=args['title'],
+            content=args['content']
+        )
+
+        return {
+            'id': new_zametka.id,
+            'title': new_zametka.title,
+            'content': new_zametka.content
+        }, 201
